@@ -10,7 +10,7 @@ namespace Banking_WebAPI_Practice_Project.Models
         public string Type { get; set; } = string.Empty;
         [StringLength(80)]
         public string Description { get; set; } = string.Empty;
-        [Column(TypeName = "decimal(1,2)")]
+        [Column(TypeName = "decimal(3,2)")]
         public decimal InterestRate { get; set; } = 0;
         [Column(TypeName = "decimal(11,2)")]
         public decimal Balance { get; set;}
