@@ -4,6 +4,7 @@ using Banking_WebAPI_Practice_Project.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Banking_WebAPI_Practice_Project.Migrations
 {
     [DbContext(typeof(Banking_WebAPI_Practice_ProjectContext))]
-    partial class Banking_WebAPI_Practice_ProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20230912153226_added account model and accountscontroller")]
+    partial class addedaccountmodelandaccountscontroller
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
