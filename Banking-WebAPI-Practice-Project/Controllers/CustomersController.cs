@@ -136,9 +136,11 @@ namespace Banking_WebAPI_Practice_Project.Controllers
         await ACC.PostAccount(acc);
         return NoContent();
         }
-        //[HttpDelete("{Id}")]
-        //public async Task<IActionResult> CloseAccount(string Id) {
-        //    _context
-        //}
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> CloseAccount(int Id) {
+            AccountsController ACC = new(_context);
+            await ACC.DeleteAccount(Id);
+            return NoContent();
+        }
     }
 }
