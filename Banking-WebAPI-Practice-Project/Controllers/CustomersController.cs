@@ -60,6 +60,7 @@ namespace Banking_WebAPI_Practice_Project.Controllers
                 return BadRequest();
             }
 
+            //customer.ModifiedDate = DateTime.Now;
             _context.Entry(customer).State = EntityState.Modified;
 
             try
