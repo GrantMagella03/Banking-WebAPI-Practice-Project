@@ -60,6 +60,7 @@ namespace Banking_WebAPI_Practice_Project.Controllers
                 return BadRequest();
             }
 
+            //customer.ModifiedDate = DateTime.Now;
             _context.Entry(customer).State = EntityState.Modified;
 
             try
@@ -119,6 +120,28 @@ namespace Banking_WebAPI_Practice_Project.Controllers
         private bool CustomerExists(int id)
         {
             return (_context.Customers?.Any(e => e.ID == id)).GetValueOrDefault();
+        }
+
+        [HttpPut("{type}")]
+        public async Task<IActionResult> AddAccount(string type, Account acc) {
+        if (type == "CK"||type == "ck") {
+            acc.Type = "CK";
+            acc.InterestRate = 0;
+        } else if (type == "SV"||type == "sv") {
+            acc.Type = "SV";
+            if (acc.InterestRate == 0) {
+            acc.InterestRate = 0.01m;
+            }
+        }
+        AccountsController ACC = new(_context);
+        await ACC.PostAccount(acc);
+        return NoContent();
+        }
+        [HttpDelete("{Id}")]
+        public async Task<IActionResult> CloseAccount(int Id) {
+            AccountsController ACC = new(_context);
+            await ACC.DeleteAccount(Id);
+            return NoContent();
         }
     }
 }
