@@ -17,5 +17,7 @@ namespace Banking_WebAPI_Practice_Project.Data
         public DbSet<Banking_WebAPI_Practice_Project.Models.Customer> Customers { get; set; } = default!;
 
         public DbSet<Banking_WebAPI_Practice_Project.Models.Account> Accounts { get; set; } = default!;
+
+        public DbSet<Banking_WebAPI_Practice_Project.Models.Transaction> Transactions { get; set; } = default!;
     }
 }
